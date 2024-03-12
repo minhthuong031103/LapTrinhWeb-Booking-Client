@@ -173,7 +173,7 @@ export function SearchBar() {
               </div>
               <div className=" lg:grid lg:grid-cols-1 lg:gap-2 space-y-4 lg:space-y-1 ml-[10%] mr-[10%]">
                 <Button
-                  className="w-[95%] bg-red-400 hover:bg:text-white bg:bg-slate-800"
+                  className="w-[95%] bg-black hover:bg:text-white bg:bg-slate-800"
                   type="submit"
                 >
                   Tìm kiếm
