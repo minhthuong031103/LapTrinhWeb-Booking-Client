@@ -1,9 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-'use client';
+"use client";
 
-import { Button } from '@/components/ui/button';
-import { Input } from '@nextui-org/react';
-import { Select, SelectItem } from '@nextui-org/react';
+import { Button } from "@/components/ui/button";
+import { Input } from "@nextui-org/react";
+import { Select, SelectItem } from "@nextui-org/react";
+import { IoAccessibility } from "react-icons/io5";
+import { IoBedOutline } from "react-icons/io5";
 
 import {
   Form,
@@ -11,27 +13,28 @@ import {
   FormField,
   FormItem,
   FormMessage,
-} from '@/components/ui/form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
-import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
-import { useEffect, useState } from 'react';
-import { BiBuildingHouse } from 'react-icons/bi';
-import { GiReceiveMoney } from 'react-icons/gi';
-import { PickLocation } from '../../bat-dong-san/(components)/PickLocation';
-import { useRouter } from 'next/navigation';
+} from "@/components/ui/form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import * as z from "zod";
+import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { useEffect, useState } from "react";
+import { BiBuildingHouse } from "react-icons/bi";
+import { GiReceiveMoney } from "react-icons/gi";
+import { PickLocation } from "../../bat-dong-san/(components)/PickLocation";
+import { useRouter } from "next/navigation";
+import { DatePickerWithRange1 } from "./date";
 
 const types = [
-  { label: 'Căn hộ', value: 'Căn hộ' },
-  { label: 'Nhà ở', value: 'Nhà ở' },
-  { label: 'Văn phòng', value: 'Văn phòng' },
-  { label: 'Đất', value: 'Đất' },
+  { label: "1", value: "1" },
+  { label: "2", value: "2" },
+  { label: "3", value: "3" },
+  { label: "4", value: "4" },
 ] as const;
 
 const isRents = [
-  { label: 'Cho thuê', value: 'true' },
-  { label: 'Đăng bán', value: 'false' },
+  { label: "phòng đơn", value: "true" },
+  { label: "phòng đôi", value: "false" },
 ] as const;
 
 const formSchema = z.object({
@@ -42,17 +45,17 @@ const formSchema = z.object({
 
 export function SearchBar() {
   const router = useRouter();
-  const [addressValue, setAddressValue] = useState('');
+  const [addressValue, setAddressValue] = useState("");
 
   useEffect(() => {}, []);
   // 1. Define your form.
-  const [typeNumber, setTypeNumber] = useState('0');
+  const [typeNumber, setTypeNumber] = useState("0");
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      searchWord: '',
-      type: '',
-      isRent: '',
+      searchWord: "",
+      type: "",
+      isRent: "",
     },
   });
   // 2. Define a submit handler.
@@ -68,7 +71,7 @@ export function SearchBar() {
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}
-              className="lg:grid lg:grid-cols-5 lg:gap-2 space-y-4 lg:space-y-0"
+              className="lg:grid lg:grid-cols-1 lg:gap-2 space-y-4 lg:space-y-0"
             >
               <FormField
                 control={form.control}
@@ -81,7 +84,7 @@ export function SearchBar() {
                           className="h-[52px]"
                           variant="bordered"
                           radius="sm"
-                          label="Nhập từ khóa"
+                          label="Nơi bạn muốn đến"
                           {...field}
                         />
                         <MagnifyingGlassIcon className="h-6 w-6 opacity-50 float-right -mt-9 mr-4" />
@@ -92,89 +95,90 @@ export function SearchBar() {
                 )}
               />
 
-              <div>
-                <PickLocation
-                  addressValue={addressValue}
-                  setAddressValue={setAddressValue}
+              <div className="lg:grid lg:grid-cols-3 lg:gap-2 space-y-4 lg:space-y-0">
+                <DatePickerWithRange1 />
+                <FormField
+                  control={form.control}
+                  name="type"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col">
+                      <FormControl>
+                        <div className="mr-6">
+                          <Select
+                            label="Số Lượng"
+                            className="h-[52px]"
+                            variant="bordered"
+                            radius="sm"
+                            size="sm"
+                            selectorIcon={<IoAccessibility />}
+                            {...field}
+                          >
+                            {types.map((type) => (
+                              <SelectItem
+                                key={type.value}
+                                value={type.value}
+                                onClick={() => {
+                                  setTypeNumber(
+                                    type.value === "1"
+                                      ? "1"
+                                      : type.value === "2"
+                                      ? "2"
+                                      : type.value === "3"
+                                      ? "3"
+                                      : "4"
+                                  );
+                                }}
+                              >
+                                {type.label}
+                              </SelectItem>
+                            ))}
+                          </Select>
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="isRent"
+                  render={({ field }) => (
+                    <FormItem className="flex flex-col">
+                      <FormControl>
+                        <div className="mr-6">
+                          <Select
+                            label="Loại Phòng"
+                            className="h-[52px] w-[100%]"
+                            variant="bordered"
+                            radius="sm"
+                            size="sm"
+                            selectorIcon={<IoBedOutline />}
+                            {...field}
+                          >
+                            {isRents.map((isRent) => (
+                              <SelectItem
+                                key={isRent.value}
+                                value={isRent.value}
+                              >
+                                {isRent.label}
+                              </SelectItem>
+                            ))}
+                          </Select>
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
                 />
               </div>
-
-              <FormField
-                control={form.control}
-                name="type"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col">
-                    <FormControl>
-                      <div className="mr-6">
-                        <Select
-                          label="Loại bất động sản"
-                          className="h-[52px]"
-                          variant="bordered"
-                          radius="sm"
-                          size="sm"
-                          selectorIcon={<BiBuildingHouse />}
-                          {...field}
-                        >
-                          {types.map((type) => (
-                            <SelectItem
-                              key={type.value}
-                              value={type.value}
-                              onClick={() => {
-                                setTypeNumber(
-                                  type.value === 'Căn hộ'
-                                    ? '1'
-                                    : type.value === 'Nhà ở'
-                                    ? '2'
-                                    : type.value === 'Văn phòng'
-                                    ? '3'
-                                    : '4'
-                                );
-                              }}
-                            >
-                              {type.label}
-                            </SelectItem>
-                          ))}
-                        </Select>
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="isRent"
-                render={({ field }) => (
-                  <FormItem className="flex flex-col">
-                    <FormControl>
-                      <div className="mr-6">
-                        <Select
-                          label="Hình thức"
-                          className="h-[52px] w-[100%]"
-                          variant="bordered"
-                          radius="sm"
-                          size="sm"
-                          selectorIcon={<GiReceiveMoney />}
-                          {...field}
-                        >
-                          {isRents.map((isRent) => (
-                            <SelectItem key={isRent.value} value={isRent.value}>
-                              {isRent.label}
-                            </SelectItem>
-                          ))}
-                        </Select>
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button
-                className="w-[90%] bg-red-400 hover:bg:text-white bg:bg-slate-800"
-                type="submit"
-              >
-                Tìm kiếm
-              </Button>
+              <div className=" lg:grid lg:grid-cols-1 lg:gap-2 space-y-4 lg:space-y-1 ml-[10%] mr-[10%]">
+                <Button
+                  className="w-[95%] bg-black hover:bg:text-white bg:bg-slate-800"
+                  type="submit"
+                >
+                  Tìm kiếm
+                </Button>
+              </div>
             </form>
           </Form>
         </div>
