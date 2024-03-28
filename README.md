@@ -19,11 +19,11 @@
 ![alt text](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)
 
 ##
-21522655 Nguyen Minh Thuong
-22520157 Vo Nguyen Chien
-20521875 Nguyen Duy Tan
-22521131 Nguyen Le Bao Phuc
-20521320 Le Minh Hieu
+- 21522655 Nguyen Minh Thuong
+- 22520157 Vo Nguyen Chien
+- 20521875 Nguyen Duy Tan
+- 22521131 Nguyen Le Bao Phuc
+- 20521320 Le Minh Hieu
 UITEstate is a website which plays an important role in transactions between Real Estate seller and customer, managed by a real estate broker.
 ## 📚 Introduction
 ![alt text](https://github.com/minhthuong031103/SE100_RealEstate/blob/dev_Son/public/ReadmeImage/intro.png)
