@@ -48,8 +48,7 @@ I deeply appreciate every member of this team for showing relentless effort for 
 
 |  Leader  |  Member | Member | Supporter 
 | ------------- | ------------- | --------------------------|------------------------|
-|[![](https://avatars.githubusercontent.com/u/116157535?size=160)](https://github.com/SonDangUIT1111)|[![](https://avatars.githubusercontent.com/u/101078033?size=160)](https://github.com/minhthuong031103)|[![](https://avatars.githubusercontent.com/u/30335268?size=160)](https://github.com/anhkhoatqt11)|[![]()](https://github.com/huutaiii)
-[Đặng Thái Sơn](https://github.com/SonDangUIT1111)|[Nguyễn Minh Thường](https://github.com/minhthuong031103)|[Trương Anh Khoa](https://github.com/anhkhoatqt11)|[Trương Quốc Tài](https://github.com/huutaiii)
+|[![](https://avatars.githubusercontent.com/u/101078033?size=160)](https://github.com/minhthuong031103)|[![](https://avatars.githubusercontent.com/u/128486617?size=160)](https://github.com/baophucdh)|[![](https://avatars.githubusercontent.com/u/114569634?size=160)](https://github.com/BodeLV)|[![]()](https://github.com/tannd1875)
 
 ## ⚙ Deploy on Vercel
 
