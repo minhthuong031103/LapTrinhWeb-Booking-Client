@@ -27,8 +27,7 @@ export function ListComponent({ searchProps }) {
     keepPreviousData: true,
   });
   const ref = React.useRef(null);
-  useEffect(() => {
-  }, [searchProps]);
+  useEffect(() => {}, [searchProps]);
 
   //Set page state when change review page index
   const onPageChange = (page) => {
@@ -69,7 +68,7 @@ export function ListComponent({ searchProps }) {
     <div ref={ref} className="mr-6">
       <div className="flex justify-between p-4 rounded-xl bg-white border-[1px] shadow-sm">
         <div className=" text-[14px] text-gray-500 flex my-auto">
-          {data?.totalItems} kết quả
+          {data?.totalItems} khách sạn
         </div>
         <div className="flex flex-row">
           <p className="text-[14px] text-neutral-800 flex my-auto mr-2 font-semibold">

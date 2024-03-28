@@ -55,9 +55,9 @@ export function ListItemComponent({ item }) {
               <BranchPost type={item?.nhan}></BranchPost>
             </div>
             <p className="font-semibold text-[24px] text-white absolute bottom-4 left-6   ">
-              {formatCurrency(item?.gia)}
+              {formatCurrency(400000)}
               {item?.isChothue === true ? (
-                <p className="text-[20px] font-normal"> /Tháng</p>
+                <p className="text-[20px] font-normal"> /đêm</p>
               ) : (
                 <></>
               )}

@@ -67,12 +67,12 @@ model BaiViet {
   dienTich            Float
   chieuDai            Float
   chieuRong           Float
-  hinhAnhSanPham      String?     @db.LongText
+            
   hinhAnhGiayTo       String?     @db.LongText
   video               String?     @db.LongText
   tinhTrangPhapLy     String?
   loaiHinhId          Int
-  soTang              Int?
+  
   huongBanCong        String?
   soPhongNgu          Int?
   soPhongTam          Int?
