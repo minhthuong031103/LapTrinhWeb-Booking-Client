@@ -3,6 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Checkbox, Input } from "@nextui-org/react";
 import { Select, SelectItem } from "@nextui-org/react";
+import { IoAccessibility } from "react-icons/io5";
+import { IoBedOutline } from "react-icons/io5";
 
 import {
   Form,
@@ -25,6 +27,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useBatDongSan } from "@/hooks/useBatDongSan";
 import { searchType } from "./LayoutBatDongSan";
 import { PickLocation } from "./PickLocation";
+import { DatePickerWithRange1 } from "../../(home)/(components)/date";
 import { BiBuildingHouse, BiLabel, BiSolidLayerPlus } from "react-icons/bi";
 import { GiReceiveMoney } from "react-icons/gi";
 import { BsHouses } from "react-icons/bs";
@@ -35,10 +38,10 @@ import { PiBathtub } from "react-icons/pi";
 import { RangeSelector } from "./RangeSelector";
 
 const types = [
-  { label: "Căn hộ", value: "Căn hộ" },
-  { label: "Nhà ở", value: "Nhà ở" },
-  { label: "Văn phòng", value: "Văn phòng" },
-  { label: "Đất", value: "Đất" },
+  { label: "1", value: "1" },
+  { label: "2", value: "2" },
+  { label: "3", value: "3" },
+  { label: "4", value: "4" },
 ] as const;
 
 const branches = [
@@ -48,8 +51,8 @@ const branches = [
 ] as const;
 
 const isRents = [
-  { label: "Cho thuê", value: "true" },
-  { label: "Đăng bán", value: "false" },
+  { label: "phòng đơn", value: "true" },
+  { label: "phòng đôi", value: "false" },
 ] as const;
 
 const loaiCanHos = [];
@@ -209,7 +212,7 @@ export function SearchComponent({ setSearchProps }: props) {
                       className="h-[52px]"
                       variant="bordered"
                       radius="sm"
-                      label="Nhập từ khóa"
+                      label="Nơi bạn muốn đến"
                       {...field}
                     />
                     <MagnifyingGlassIcon className="h-6 w-6 opacity-50 float-right -mt-9 mr-4" />
@@ -220,11 +223,8 @@ export function SearchComponent({ setSearchProps }: props) {
             )}
           />
 
-          <div>
-            <PickLocation
-              addressValue={addressValue}
-              setAddressValue={setAddressValue}
-            />
+          <div className="">
+            <DatePickerWithRange1 />
           </div>
 
           <FormField
@@ -235,12 +235,12 @@ export function SearchComponent({ setSearchProps }: props) {
                 <FormControl>
                   <div className="mr-6">
                     <Select
-                      label="Loại bất động sản"
+                      label="số lượng"
                       className="h-[52px]"
                       variant="bordered"
                       radius="sm"
                       size="sm"
-                      selectorIcon={<BiBuildingHouse />}
+                      selectorIcon={<IoAccessibility />}
                       {...field}
                     >
                       {types.map((type) => (
@@ -249,11 +249,11 @@ export function SearchComponent({ setSearchProps }: props) {
                           value={type.value}
                           onClick={() => {
                             setTypeNumber(
-                              type.value === "Căn hộ"
+                              type.value === "1"
                                 ? "1"
-                                : type.value === "Nhà ở"
+                                : type.value === "2"
                                 ? "2"
-                                : type.value === "Văn phòng"
+                                : type.value === "3"
                                 ? "3"
                                 : "4"
                             );
@@ -277,12 +277,12 @@ export function SearchComponent({ setSearchProps }: props) {
                 <FormControl>
                   <div className="mr-6">
                     <Select
-                      label="Hình thức"
+                      label="loại phòng"
                       className="h-[52px] w-[100%]"
                       variant="bordered"
                       radius="sm"
                       size="sm"
-                      selectorIcon={<GiReceiveMoney />}
+                      selectorIcon={<IoBedOutline />}
                       {...field}
                     >
                       {isRents.map((isRent) => (
@@ -700,7 +700,7 @@ export function SearchComponent({ setSearchProps }: props) {
               </AccordionContent>
             </AccordionItem>
           </Accordion>
-          <Button className="w-[90%] bg-red-400" type="submit">
+          <Button className="w-[90%] bg-black" type="submit">
             Tìm kiếm
           </Button>
         </form>

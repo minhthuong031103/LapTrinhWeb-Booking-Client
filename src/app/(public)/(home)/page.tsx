@@ -20,6 +20,8 @@ const page = async () => {
     <div className="mt-0 flex h-full w-full flex-col">
       <SearchHome />
       <TypeCollection />
+      <BatDongSanNoiBatHome />
+      <BatDongSanKhuVuc />
       <Banner />
       <FindMore />
     </div>

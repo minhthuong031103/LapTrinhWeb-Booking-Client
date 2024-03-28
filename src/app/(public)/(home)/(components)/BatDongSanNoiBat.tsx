@@ -28,7 +28,7 @@ function BatDongSanNoiBatHome() {
     >
       <div className="flex max-w-[58rem] flex-col items-start space-y-2 text-center">
         <h2 className="text-xl font-bold leading-[1.1] sm:text-3xl md:text-2xl">
-          Bất động sản nổi bật
+          danh sác khách sạn nổi bật
         </h2>
         <Balancer className="max-w-[46rem] leading-normal text-muted-foreground sm:text-base sm:leading-7">
           Danh sách bất động sản nổi bật dành cho bạn

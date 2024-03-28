@@ -29,7 +29,7 @@ export const CacLoaiHinhBatDongSan = () => {
   };
   return (
     <div className="p-8 mr-6 rounded-xl bg-white border-[1px] shadow-sm space-y-4">
-      <div>Danh mục bất động sản</div>
+      <div>quá mệt mỏi rồi </div>
       <div className="flex flex-col gap-4">
         {listLoaiHinh?.map((item, index) => (
           <Link

@@ -61,7 +61,6 @@ export function LayoutBatDongSanTheoType({ id }) {
         <div className="basis-[35%] flex flex-col gap-4">
           <SearchComponent setSearchProps={setSearchProps} />
           <BatDongSanNoiBat />
-          <CacLoaiHinhBatDongSan />
         </div>
         <div className="basis-[65%]">
           <Separator className="lg:hidden h-[6px] mt-4 mb-8 w-[96%] text-gray-500 rounded-md" />
