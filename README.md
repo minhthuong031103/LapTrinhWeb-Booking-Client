@@ -24,7 +24,9 @@
 - 20521875 Nguyen Duy Tan
 - 22521131 Nguyen Le Bao Phuc
 - 20521320 Le Minh Hieu
-UITEstate is a website which plays an important role in transactions between Real Estate seller and customer, managed by a real estate broker.
+
+
+  UITEstate is a website which plays an important role in transactions between Real Estate seller and customer, managed by a real estate broker.
 ## 📚 Introduction
 ![alt text](https://github.com/minhthuong031103/SE100_RealEstate/blob/dev_Son/public/ReadmeImage/intro.png)
 
