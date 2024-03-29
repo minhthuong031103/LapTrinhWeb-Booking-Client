@@ -1,6 +1,6 @@
-import { BatDongSanNoiBat } from '../bat-dong-san/(components)/BatDongSanNoiBat';
-import { CacLoaiHinhBatDongSan } from '../bat-dong-san/(components)/CacLoaiHinhBatDongSan';
-import { ListComponent } from './(components)/ListComponent';
+import { BatDongSanNoiBat } from "../bat-dong-san/(components)/BatDongSanNoiBat";
+
+import { ListComponent } from "./(components)/ListComponent";
 
 async function page() {
   return (
@@ -16,7 +16,6 @@ async function page() {
           <div className="flex flex-col gap-6 lg:gap-0 lg:flex-row pt-8">
             <div className="basis-[35%] flex flex-col gap-4">
               <BatDongSanNoiBat />
-              <CacLoaiHinhBatDongSan />
             </div>
             <div className="basis-[65%]">
               <ListComponent />
