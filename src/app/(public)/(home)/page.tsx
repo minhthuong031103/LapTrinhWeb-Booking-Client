@@ -1,17 +1,19 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-import SearchHome from './(components)/SearchHome';
-import TypeCollection from './(components)/TypeCollection';
+import React from "react";
+import dynamic from "next/dynamic";
+import SearchHome from "./(components)/SearchHome";
+import TypeCollection from "./(components)/TypeCollection";
 const BatDongSanNoiBatHome = dynamic(
-  () => import('./(components)/BatDongSanNoiBat'),
+  () => import("./(components)/BatDongSanNoiBat"),
   { ssr: false }
 );
-const BatDongSanKhuVuc = dynamic(
-  () => import('./(components)/BatDongSanKhuVuc'),
-  { ssr: false }
-);
-const Banner = dynamic(() => import('./(components)/Banner'), { ssr: false });
-const FindMore = dynamic(() => import('./(components)/FindMore'), {
+const KhachSanNoiBat = dynamic(() => import("./(components)/KhachSanNoiBat"), {
+  ssr: false,
+});
+const BatDongSanKhuVuc = dynamic(() => import("./(components)/PhongKhachSan"), {
+  ssr: false,
+});
+const Banner = dynamic(() => import("./(components)/Banner"), { ssr: false });
+const FindMore = dynamic(() => import("./(components)/FindMore"), {
   ssr: false,
 });
 
@@ -21,6 +23,7 @@ const page = async () => {
       <SearchHome />
       <TypeCollection />
       <BatDongSanNoiBatHome />
+      <KhachSanNoiBat />
       <BatDongSanKhuVuc />
       <Banner />
       <FindMore />
