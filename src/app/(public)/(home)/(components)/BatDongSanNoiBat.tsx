@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import React, { useEffect, useState } from "react";
-import "swiper/css";
-import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
-import { Balancer } from "react-wrap-balancer";
-import { useBatDongSan } from "@/hooks/useBatDongSan";
-import { ListItemNoiBat } from "./ListItemNoiBat";
+import React, { useEffect, useState } from 'react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
+import { Balancer } from 'react-wrap-balancer';
+import { useBatDongSan } from '@/hooks/useBatDongSan';
+import { ListItemNoiBat } from './ListItemNoiBat';
 
 function BatDongSanNoiBatHome() {
   const [listNoiBat, setListNoiBat] = useState([]);
@@ -37,12 +37,12 @@ function BatDongSanNoiBatHome() {
       <Swiper
         style={
           {
-            "--swiper-pagination-bullet-inactive-color": "#999999",
-            "--swiper-pagination-bullet-inactive-opacity": "1",
-            "--swiper-pagination-color": "#000000",
-            "--swiper-pagination-bullet-size": "12px",
-            "--swiper-pagination-bullet-width": "10px",
-            "--swiper-pagination-bullet-height": "10px",
+            '--swiper-pagination-bullet-inactive-color': '#999999',
+            '--swiper-pagination-bullet-inactive-opacity': '1',
+            '--swiper-pagination-color': '#000000',
+            '--swiper-pagination-bullet-size': '12px',
+            '--swiper-pagination-bullet-width': '10px',
+            '--swiper-pagination-bullet-height': '10px',
           } as React.CSSProperties
         }
         slidesPerView={1}

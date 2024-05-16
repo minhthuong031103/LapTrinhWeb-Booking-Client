@@ -17,9 +17,7 @@ function FindMore() {
     >
       <div className="group rounded-md overflow-hidden relative h-[500px] w-full">
         <img
-          src={
-            'https://th.bing.com/th/id/R.a8a00a966f9f8ad01dacf533d725733d?rik=MFjrFVXN7m8XSg&riu=http%3a%2f%2fcdn.justluxe.com%2farticles%2fimages%2fnews%2fbeverlyhillshome1958338i.jpg&ehk=fXH%2f%2fZI2GpK%2f%2bwO%2b6NX%2fugc8jR%2bNIdOHIDGzssS6jOA%3d&risl=&pid=ImgRaw&r=0'
-          }
+          src={'/download.jpeg'}
           alt={'Tìm kiếm thêm'}
           className="object-cover w-full h-full"
         />

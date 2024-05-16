@@ -19,16 +19,9 @@
 ![alt text](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)
 
 ##
-- 21522655 Nguyen Minh Thuong
-- 22520157 Vo Nguyen Chien
-- 20521875 Nguyen Duy Tan
-- 22521131 Nguyen Le Bao Phuc
-- 20521320 Le Minh Hieu
-
-
-  UITEstate is a website which plays an important role in transactions between Real Estate seller and customer, managed by a real estate broker.
-![](https://res.cloudinary.com/dci8dhaps/image/upload/v1711608419/chucnang_nbgho3.png)
+UITEstate is a website which plays an important role in transactions between Real Estate seller and customer, managed by a real estate broker.
 ## 📚 Introduction
+![alt text](https://github.com/minhthuong031103/SE100_RealEstate/blob/dev_Son/public/ReadmeImage/intro.png)
 
 UITEstate - Real Estate Brokerage Market is a web application that helps an individual manage his brokerage office, instead of doing thing in person with a lot of paper works, this web app helps office manager colect information about real estate from the sellers and provide it for the customers. This project has 2 repositories, this introduces you about the customer side wed, you can visit the admin side web repository in this link: https://github.com/minhthuong031103/SE100-admin-estate
 
@@ -55,7 +48,8 @@ I deeply appreciate every member of this team for showing relentless effort for 
 
 |  Leader  |  Member | Member | Supporter 
 | ------------- | ------------- | --------------------------|------------------------|
-|[![](https://avatars.githubusercontent.com/u/101078033?size=160)](https://github.com/minhthuong031103)|[![](https://avatars.githubusercontent.com/u/128486617?size=160)](https://github.com/baophucdh)|[![](https://avatars.githubusercontent.com/u/114569634?size=160)](https://github.com/BodeLV)|[![]()](https://github.com/tannd1875)
+|[![](https://avatars.githubusercontent.com/u/116157535?size=160)](https://github.com/SonDangUIT1111)|[![](https://avatars.githubusercontent.com/u/101078033?size=160)](https://github.com/minhthuong031103)|[![](https://avatars.githubusercontent.com/u/30335268?size=160)](https://github.com/anhkhoatqt11)|[![]()](https://github.com/huutaiii)
+[Đặng Thái Sơn](https://github.com/SonDangUIT1111)|[Nguyễn Minh Thường](https://github.com/minhthuong031103)|[Trương Anh Khoa](https://github.com/anhkhoatqt11)|[Trương Quốc Tài](https://github.com/huutaiii)
 
 ## ⚙ Deploy on Vercel
 

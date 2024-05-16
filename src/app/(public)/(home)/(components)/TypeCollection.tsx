@@ -11,24 +11,24 @@ import Link from "next/link";
 
 const typeCollections = [
   {
-    title: "Vũng Tàu",
+    title: "Căn hộ",
     image:
-      "https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2022/11/1/1111523/Vung-Tau-2.jpg",
+      "https://res.cloudinary.com/dci8dhaps/image/upload/v1697515390/-1x-1_utjymn.jpg",
   },
   {
-    title: "Đà Lạt",
+    title: "Nhà ở",
     image:
-      "https://media.techcity.cloud/vietnam.vn/2023/05/anh-dep-da-lat-nang-som_085717263-9.jpg",
+      "https://res.cloudinary.com/dci8dhaps/image/upload/v1697515404/main_ngeelh.jpg",
   },
   {
-    title: "Đà nẵng",
+    title: "Đất",
     image:
-      "https://vcdn1-dulich.vnecdn.net/2022/06/03/cauvang-1654247842-9403-1654247849.jpg?w=1200&h=0&q=100&dpr=1&fit=crop&s=Swd6JjpStebEzT6WARcoOA",
+      "https://res.cloudinary.com/dci8dhaps/image/upload/v1697515409/RealEstateServices-2_ypj0kw.jpg",
   },
   {
-    title: "Phú Quốc",
+    title: "Văn phòng",
     image:
-      "https://media-cdn-v2.laodong.vn/Storage/newsportal/2019/2/6/656344/01.jpg",
+      "https://res.cloudinary.com/dci8dhaps/image/upload/v1697515413/Real-Estate-Office-Space_cbih0p.webp",
   },
 ];
 
@@ -41,8 +41,11 @@ function TypeCollections() {
     >
       <div className="flex max-w-[58rem] flex-col items-start space-y-2 text-center">
         <h2 className="text-xl font-bold leading-[1.1] sm:text-3xl md:text-2xl">
-          Các điểm đến thu hút nhất Việt Nam
+          Lựa chọn loại bất động sản
         </h2>
+        <Balancer className="max-w-[46rem] leading-normal text-muted-foreground sm:text-base sm:leading-7">
+          Tìm kiếm bất động sản phù hợp với bạn
+        </Balancer>
       </div>
       <Swiper
         style={
