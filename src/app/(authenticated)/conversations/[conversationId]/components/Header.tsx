@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
   const otherUser = useOtherUser(conversation);
 
   const { members } = useActiveList();
-  const isActive = otherUser && members.indexOf(otherUser.email) !== -1;
+  const isActive = otherUser?.isOnline;
   const statusText = useMemo(() => {
     return isActive ? 'Active' : 'Offline';
   }, [conversation, isActive]);
