@@ -6,6 +6,7 @@
     "dev": "next dev ",
     "build": "prisma generate && next build",
     "start": "next start",
+    "deploy" :"pm2 delete booking-client && git pull && yarn build pm2 start npm --name booking-client -- run start -- -p 3010",
     "lint": "next lint",
     "postinstall": "prisma generate",
     "prepare": "husky install"
