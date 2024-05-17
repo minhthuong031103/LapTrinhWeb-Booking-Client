@@ -147,7 +147,7 @@ const options: AuthOptions = {
           process.env.NEXT_PUBLIC_JWT_SECRET,
           { expiresIn: '1h' }
         );
-        return `/auth/register/?payload=${payload}`;
+        return `${process.env.NEXT_FRONTEND_URL}/auth/register/?payload=${payload}`;
       }
 
       return true;
@@ -196,7 +196,7 @@ const options: AuthOptions = {
     },
   },
   pages: {
-    signIn: '/auth/login',
+    signIn: `${process.env.NEXT_FRONTEND_URL}/auth/login`,
   },
 };
 export default options;
