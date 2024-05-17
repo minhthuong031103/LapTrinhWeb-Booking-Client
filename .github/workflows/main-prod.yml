@@ -20,4 +20,5 @@ jobs:
           port: 22
           script: |
             cd ~/snap/LapTrinhWeb-Booking-Client
+            npm i -g yarn
             yarn deploy
