@@ -19,6 +19,5 @@ jobs:
           key: ${{secrets.FILE_PEM_PROD}}
           port: 22
           script: |
-            cd ~/snap/HungLuat-Backend-New
-            git pull
-            docker compose up -d --build
+            cd ~/snap/LapTrinhWeb-Booking-Client
+            yarn deploy
