@@ -1,25 +1,25 @@
-"use client";
+'use client';
 
-import React from "react";
-import { SelectAddress } from "./SelectAddress";
-import { generateReactHelpers } from "@uploadthing/react/hooks";
-import { OurFileRouter } from "@/app/api/uploadthing/core";
-import { FileDialog } from "@/components/ui/FileDialog";
-import { ImageList } from "@/components/ui/ImageList";
-import { Button } from "@/components/ui/button";
-import { useDoiTac } from "@/hooks/useDoiTac";
-import DialogCustom from "@/components/ui/dialogCustom";
-import { PartnerName } from "./PartnerName";
-import { PhoneNumber } from "./PhoneNumber";
-import toast from "react-hot-toast";
+import React from 'react';
+import { SelectAddress } from './SelectAddress';
+import { generateReactHelpers } from '@uploadthing/react/hooks';
+import { OurFileRouter } from '@/app/api/uploadthing/core';
+import { FileDialog } from '@/components/ui/FileDialog';
+import { ImageList } from '@/components/ui/ImageList';
+import { Button } from '@/components/ui/button';
+import { useDoiTac } from '@/hooks/useDoiTac';
+import DialogCustom from '@/components/ui/dialogCustom';
+import { PartnerName } from './PartnerName';
+import { PhoneNumber } from './PhoneNumber';
+import toast from 'react-hot-toast';
 
 const { useUploadThing } = generateReactHelpers<OurFileRouter>();
 
 export const ThongTinForm = ({ loaiDoiTac }) => {
-  const { startUpload } = useUploadThing("imageUploader");
+  const { startUpload } = useUploadThing('imageUploader');
 
-  const [addressValue, setAddressValue] = React.useState("");
-  const [phoneNumber, setPhoneNumber] = React.useState("");
+  const [addressValue, setAddressValue] = React.useState('');
+  const [phoneNumber, setPhoneNumber] = React.useState('');
   const [nationalIDFrontImageFile, setNationalIDFrontImageFile] =
     React.useState([]);
   const [nationalIDBackImageFile, setNationalIDBackImageFile] = React.useState(
@@ -34,8 +34,8 @@ export const ThongTinForm = ({ loaiDoiTac }) => {
   const { uploadDoiTacInfo } = useDoiTac();
 
   const onSubmit = async () => {
-    if (!addressValue || !phoneNumber || !nameDoiTac) {
-      toast.error("Vui lòng nhập tất cả thông tin");
+    if (!phoneNumber || !nameDoiTac) {
+      toast.error('Vui lòng nhập tất cả thông tin');
       return;
     }
 
@@ -64,7 +64,7 @@ export const ThongTinForm = ({ loaiDoiTac }) => {
         startUpload([...nationalIDFrontImageFile]).then((res) => {
           const formattedImages = res?.map((image) => ({
             id: image.key,
-            name: image.key.split("_")[1] ?? image.key,
+            name: image.key.split('_')[1] ?? image.key,
             url: image.url,
           }));
           return formattedImages ?? null;
@@ -72,7 +72,7 @@ export const ThongTinForm = ({ loaiDoiTac }) => {
         startUpload([...nationalIDBackImageFile]).then((res) => {
           const formattedImages = res?.map((image) => ({
             id: image.key,
-            name: image.key.split("_")[1] ?? image.key,
+            name: image.key.split('_')[1] ?? image.key,
             url: image.url,
           }));
           return formattedImages ?? null;
@@ -80,7 +80,7 @@ export const ThongTinForm = ({ loaiDoiTac }) => {
         startUpload([...giayPhepKinhDoanhImageFiles]).then((res) => {
           const formattedImages = res?.map((image) => ({
             id: image.key,
-            name: image.key.split("_")[1] ?? image.key,
+            name: image.key.split('_')[1] ?? image.key,
             url: image.url,
           }));
           return formattedImages ?? null;
@@ -88,7 +88,7 @@ export const ThongTinForm = ({ loaiDoiTac }) => {
         startUpload([...anhChanDungImageFiles]).then((res) => {
           const formattedImages = res?.map((image) => ({
             id: image.key,
-            name: image.key.split("_")[1] ?? image.key,
+            name: image.key.split('_')[1] ?? image.key,
             url: image.url,
           }));
           return formattedImages ?? null;
@@ -111,7 +111,7 @@ export const ThongTinForm = ({ loaiDoiTac }) => {
       anhChanDung: anhChanDungImageFiles
         ? JSON.stringify([...anhChanDungImageFiles])
         : null,
-      duyetDoiTac: "cho_duyet",
+      duyetDoiTac: 'cho_duyet',
     };
 
     setIsSubmitting(true);
@@ -127,7 +127,7 @@ export const ThongTinForm = ({ loaiDoiTac }) => {
           {/* {anhChanDungImageFiles?.length ? ( */}
           <ImageList
             className={
-              "w-40 h-40 border-1 border-gray-400 rounded-full object-cover"
+              'w-40 h-40 border-1 border-gray-400 rounded-full object-cover'
             }
             files={anhChanDungImageFiles}
             height={40}
@@ -158,7 +158,7 @@ export const ThongTinForm = ({ loaiDoiTac }) => {
           {/* {nationalIDFrontImageFile?.length ? ( */}
           <div className="w-full flex justify-center">
             <ImageList
-              className={"w-56 h-36 rounded-md border-1 border-gray-400"}
+              className={'w-56 h-36 rounded-md border-1 border-gray-400'}
               files={nationalIDFrontImageFile}
               height={36}
               width={56}
@@ -181,7 +181,7 @@ export const ThongTinForm = ({ loaiDoiTac }) => {
           {/* {nationalIDBackImageFile?.length ? ( */}
           <div className="w-full flex justify-center">
             <ImageList
-              className={"w-56 h-36 rounded-md border-1 border-gray-400"}
+              className={'w-56 h-36 rounded-md border-1 border-gray-400'}
               files={nationalIDBackImageFile}
               height={36}
               width={56}
@@ -198,16 +198,16 @@ export const ThongTinForm = ({ loaiDoiTac }) => {
           />
         </div>
       </div>
-      {loaiDoiTac === "doanhnghiep" ? (
+      {loaiDoiTac === 'doanhnghiep' ? (
         <div className="flex flex-col gap-y-3">
           <div className="font-bold text-sm justify-start">
-            Hình ảnh giấy phép kinh doanh{" "}
+            Hình ảnh giấy phép kinh doanh{' '}
             <span className="text-red-500">*</span>
           </div>
           {/* {giayPhepKinhDoanhImageFiles?.length ? ( */}
           <div className="flex w-full justify-center">
             <ImageList
-              className={"w-32 h-48 rounded-md border-1 border-gray-400"}
+              className={'w-32 h-48 rounded-md border-1 border-gray-400'}
               files={giayPhepKinhDoanhImageFiles}
               height={48}
               width={32}

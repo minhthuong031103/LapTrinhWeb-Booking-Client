@@ -71,7 +71,7 @@ export const ThongTinForm = ({ loaiDoiTac, userInfo }) => {
   const { uploadDoiTacInfo } = useDoiTac();
 
   const onSubmit = async () => {
-    if (!addressValue || !phoneNumber || !nameDoiTac) {
+    if (!phoneNumber || !nameDoiTac) {
       toast.error('Vui lòng nhập tất cả thông tin');
       return;
     }
