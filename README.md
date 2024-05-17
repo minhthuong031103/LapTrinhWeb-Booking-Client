@@ -19,7 +19,7 @@
 ![alt text](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)
 
 ##
-UITEstate is a website which plays an important role in transactions between Real Estate seller and customer, managed by a real estate broker.
+UITEstate is a website which plays an important role in transactions between Real Estate seller and customer, managed by a real estate broker
 ## 📚 Introduction
 ![alt text](https://github.com/minhthuong031103/SE100_RealEstate/blob/dev_Son/public/ReadmeImage/intro.png)
 
