@@ -1,3 +1,3 @@
-import { utapi } from 'uploadthing/server';
+import { UTApi } from 'uploadthing/server';
 
-export { utapi as uploadthingApi };
+export { UTApi as uploadthingApi };

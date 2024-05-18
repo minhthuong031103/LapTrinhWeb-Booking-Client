@@ -7,7 +7,7 @@ export async function POST(req: Request) {
     return { status: 400, body: { message: 'videoId is required' } };
   }
 
-  const res = await uploadthingApi.deleteFiles([`${videoKey}`]);
+  const res = await new uploadthingApi().deleteFiles([`${videoKey}`]);
 
   if (!res) {
     return { status: 400, body: { message: 'delete video failed' } };

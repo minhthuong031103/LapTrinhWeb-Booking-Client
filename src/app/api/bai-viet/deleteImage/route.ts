@@ -8,7 +8,7 @@ export async function POST(req: Request) {
     return { status: 400, body: { message: 'imageKey is required' } };
   }
 
-  const res = await uploadthingApi.deleteFiles([`${imageKey}`]);
+  const res = await new uploadthingApi().deleteFiles([`${imageKey}`]);
 
   if (!res) {
     return { status: 400, body: { message: 'delete image failed' } };

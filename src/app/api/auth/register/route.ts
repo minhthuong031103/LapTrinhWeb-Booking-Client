@@ -11,7 +11,14 @@ export async function POST(req: Request) {
   const cmndMatTruoc = body.get('cmndMatTruoc');
   const cmndMatSau = body.get('cmndMatSau');
   const maSoCmnd = body.get('maSoCmnd') as string;
-  if (!email || !name || !password || !cmndMatTruoc || !cmndMatSau || !anhChanDung)
+  if (
+    !email ||
+    !name ||
+    !password ||
+    !cmndMatTruoc ||
+    !cmndMatSau ||
+    !anhChanDung
+  )
     return new Response('no body', { status: 400 });
 
   if (!body) return new Response('no body', { status: 400 });
@@ -29,11 +36,12 @@ export async function POST(req: Request) {
           status: 400,
         })
       );
-    const cmndUrl = await uploadthingApi.uploadFiles([
+    const cmndUrl = await new uploadthingApi().uploadFiles([
       cmndMatTruoc,
       cmndMatSau,
-      anhChanDung
+      anhChanDung,
     ]);
+    console.log('🚀 ~ POST ~ cmndUrl:', cmndUrl);
 
     const create = await prisma.user.create({
       data: {
@@ -62,6 +70,7 @@ export async function POST(req: Request) {
       );
     }
   } catch (e) {
+    console.log('🚀 ~ POST ~ e:', e);
     return new Response('error', { status: 500 });
   }
 

@@ -77,7 +77,7 @@ export const Otp = ({ email }) => {
               await update({
                 ...session,
                 user: {
-                  ...session.user,
+                  ...session?.user,
                   isEmailVerified: true,
                 },
               });
