@@ -76,7 +76,11 @@ function Header({ session }) {
               ))}
 
               <DropdownItem
-                onClick={() => signOut({ callbackUrl: '/auth/login' })}
+                onClick={() =>
+                  signOut({
+                    callbackUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/login`,
+                  })
+                }
               >
                 <div className="flex flex-row gap-2 items-center h-8  ">
                   <div className="">{AuthSvg.signIn()}</div>

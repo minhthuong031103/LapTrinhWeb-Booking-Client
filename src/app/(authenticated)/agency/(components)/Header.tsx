@@ -1,26 +1,26 @@
-"use client";
+'use client';
 
-import { Button } from "@nextui-org/react";
-import Logo from "@/components/logo";
-import React, { useState } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@components/ui/avatar";
+import { Button } from '@nextui-org/react';
+import Logo from '@/components/logo';
+import React, { useState } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from '@components/ui/avatar';
 import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
   DropdownSection,
-} from "@nextui-org/react";
-import { useRouter } from "next/navigation";
-import { signOut } from "next-auth/react";
-import AuthSvg from "@/assets/AuthSvg";
-import { FiMessageSquare } from "react-icons/fi";
-import Link from "next/link";
+} from '@nextui-org/react';
+import { useRouter } from 'next/navigation';
+import { signOut } from 'next-auth/react';
+import AuthSvg from '@/assets/AuthSvg';
+import { FiMessageSquare } from 'react-icons/fi';
+import Link from 'next/link';
 
 const avatarNav = [
   {
-    name: "Hồ sơ",
-    href: "/user",
+    name: 'Hồ sơ',
+    href: '/user',
   },
 ];
 
@@ -34,7 +34,7 @@ function Header({ session }) {
         <Logo />
       </div>
       <div className="flex flex-row gap-3 max-w-full">
-        <Link href={"/conversations"}>
+        <Link href={'/conversations'}>
           {/* <Button variant="outline" size="icon" className="relative">
     {
       <AiOutlineHeart className="text-slate-600 stroke-zinc-950 w-4 h-4 " />
@@ -82,7 +82,11 @@ function Header({ session }) {
               ))}
 
               <DropdownItem
-                onClick={() => signOut({ callbackUrl: "/auth/login" })}
+                onClick={() =>
+                  signOut({
+                    callbackUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/login`,
+                  })
+                }
               >
                 <div className="flex flex-row gap-2 items-center h-8  ">
                   <div className="">{AuthSvg.signIn()}</div>
