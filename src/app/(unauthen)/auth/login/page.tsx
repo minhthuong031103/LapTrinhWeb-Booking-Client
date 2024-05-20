@@ -19,7 +19,7 @@ const LoginPage = async () => {
                 Chào mừng!
               </h1>
               <p className="text-sm text-muted-foreground">
-                Đăng nhập để kết nối với cộng đồng UIT Estate
+                Đăng nhập để kết nối với cộng đồng Minh Thường Estate
               </p>
             </div>
             <Login />

@@ -26,7 +26,8 @@
       "@services/*": ["./src/services/*"],
       "@endpoints/*": ["./src/endpoints/*"],
       "@hooks/*": ["./src/hooks/*"],
-      "@actions/*": ["./src/actions/*"]
+      "@actions/*": ["./src/actions/*"],
+      "@lib/*": ["./src/lib/*"]
     },
     "strictNullChecks": true
   },

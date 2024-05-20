@@ -35,7 +35,7 @@ const LoginPage = async ({ searchParams }: { searchParams: any }) => {
               </h1>
               <p className="text-sm text-muted-foreground">
                 Hãy đăng ký tài khoản của bạn dể có thể sử dụng các dịch vụ của
-                UIT Estate
+                Minh Thường Estate
               </p>
             </div>
             <Register payload={{ email, name }} />

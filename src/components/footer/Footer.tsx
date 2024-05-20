@@ -96,7 +96,7 @@ const Footer = () => {
       >
         {/* LEFT START */}
         <div className="text-[12px] text-white/[0.5] hover:text-white cursor-pointer text-center md:text-left">
-          © 2023 UITEstate, Inc. All Rights Reserved
+          © 2023 Minh Thuong Estate, Inc. All Rights Reserved
         </div>
         {/* LEFT END */}
 

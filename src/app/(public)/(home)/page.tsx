@@ -4,15 +4,15 @@ import SearchHome from './(components)/SearchHome';
 import TypeCollection from './(components)/TypeCollection';
 const BatDongSanNoiBatHome = dynamic(
   () => import('./(components)/BatDongSanNoiBat'),
-  { ssr: false }
+  { ssr: true }
 );
 const BatDongSanKhuVuc = dynamic(
   () => import('./(components)/BatDongSanKhuVuc'),
-  { ssr: false }
+  { ssr: true }
 );
-const Banner = dynamic(() => import('./(components)/Banner'), { ssr: false });
+const Banner = dynamic(() => import('./(components)/Banner'), { ssr: true });
 const FindMore = dynamic(() => import('./(components)/FindMore'), {
-  ssr: false,
+  ssr: true,
 });
 
 const page = async () => {

@@ -23,11 +23,12 @@ function FindMore() {
         />
         <div className="px-5 absolute inset-0 z-20 flex flex-col items-center justify-center">
           <h3 className="text-[28px] font-semibold text-center capitalize text-slate-100 mb-2">
-            Tìm kiếm thông minh hơn, nhiều chức năng lọc hơn
+            Tìm kiếm thông minh hơn, nhiều chức năng lọc hơn với Minh Thường
+            Estate
           </h3>
           <h6 className="text-[16px] capitalize text-center text-slate-100 mb-6">
             Tìm kiếm với nhiều thuộc tính hơn, dễ dàng thao tác. <br />
-            Tìm ngay căn nhà mơ ước cho bạn nào !
+            Tìm ngay căn nhà mơ ước cho bạn cùng Minh Thường Estate !
           </h6>
           <Button
             className="bg-white w-[150px] text-base text-slate-800 font-medium hover:text-white hover:bg-slate-800"

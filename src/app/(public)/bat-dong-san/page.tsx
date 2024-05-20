@@ -1,4 +1,4 @@
-import { LayoutBatDongSan } from "./(components)/LayoutBatDongSan";
+import { LayoutBatDongSan } from './(components)/LayoutBatDongSan';
 
 async function page() {
   return (
@@ -10,7 +10,7 @@ async function page() {
               Trang chủ / Danh sách bất động sản
             </h2>
             <h1 className="text-[32px] text-neutral-700 font-semibold mt-4">
-              Danh sách bất động sản
+              Danh sách bất động sản tại Minh Thường Estate
             </h1>
           </div>
           <LayoutBatDongSan />

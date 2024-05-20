@@ -48,8 +48,8 @@ const page = async () => {
         <h1 className="font-bold text-2xl mt-6">Thông tin gói dịch vụ</h1>
 
         <p className="mt-5 text-slate-800 sm:text-lg mb-1">
-          Cho dù bạn chỉ đang thử nghiệm UIT Estate hoặc đang kinh doanh, chúng
-          tôi có một gói phù hợp với bạn.
+          Cho dù bạn chỉ đang thử nghiệm Minh Thường Estate hoặc đang kinh
+          doanh, chúng tôi có một gói phù hợp với bạn.
         </p>
         {currentlyPlan?.isSubscribed ? (
           <p className="text-gray-500 mb-3">
