@@ -3,7 +3,6 @@ import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const res = await prisma.baiViet.findMany({});
-  console.log('🚀 ~ sitemap ~ res:', res);
 
   const creditCardUrls = res
     ? res?.map((card: any) => ({
