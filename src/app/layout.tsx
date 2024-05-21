@@ -53,9 +53,7 @@ const metadata: Metadata = {
     url: 'https://uitestate.io.vn',
     siteName: 'Minh Thường Estate',
     images: [
-      'https://example.com/images/property1.png',
-      'https://example.com/images/property2.png',
-      'https://example.com/images/property3.png',
+      'https://wallpapers.com/images/hd/house-corner-architecture-7vl0mtz3dfxod0fd.webp',
     ],
   },
   metadataBase: new URL('https://uitestate.io.vn'),
@@ -110,7 +108,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/logoEstate.png" />
+        <link rel="icon" href="/favicon.ico" />
         <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
       </head>
 
