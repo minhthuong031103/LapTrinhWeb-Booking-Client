@@ -8,6 +8,11 @@ import DialogCustom from '@/components/ui/dialogCustom';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 
+import TinhTP from '@/hanhchinhvn/tinh_tp.json';
+import QuanHuyen from '@/hanhchinhvn/quan_huyen.json';
+
+import XaPhuong from '@/hanhchinhvn/xa_phuong.json';
+
 export const SelectAddress = ({ addressValue, setAddressValue }) => {
   const [selectedProvince, setSelectedProvince] = React.useState(new Set([]));
   const [selectedDistrict, setSelectedDistrict] = React.useState(new Set([]));
@@ -35,11 +40,16 @@ export const SelectAddress = ({ addressValue, setAddressValue }) => {
   useEffect(() => {
     async function getProvince() {
       setIsLoadingProvince(true);
-      const res = await getRequest({
-        endPoint: 'https://provinces.open-api.vn/api/p/',
-      });
-
-      setProvince(res);
+      // const res = await getRequest({
+      //   endPoint: 'https://provinces.open-api.vn/api/p/'
+      // })
+      // const res = await axios('https://provinces.open-api.vn/api/p/');
+      // setProvince(res.data);
+      setProvince(
+        Object.values(TinhTP).sort((a, b) =>
+          a.name_with_type.localeCompare(b.name_with_type)
+        ) as any
+      );
       setIsLoadingProvince(false);
     }
     getProvince();
@@ -52,31 +62,81 @@ export const SelectAddress = ({ addressValue, setAddressValue }) => {
         setIsLoadingDistrict(true);
         const valuesArray = Array.from(selectedProvince);
         const provinceCode = valuesArray[0];
-        const res = await getRequest({
-          endPoint: `https://provinces.open-api.vn/api/p/${provinceCode}?depth=2`,
-        });
-        setDistrict(res?.districts);
+        // const res = await getRequest({
+        //   endPoint: `https://provinces.open-api.vn/api/p/${provinceCode}?depth=2`
+        // })
+        const filterCity = Object.keys(QuanHuyen)
+          .filter(
+            (key) => QuanHuyen[key].parent_code === TinhTP[provinceCode]?.code
+          )
+          .map((key) => QuanHuyen[key]);
+
+        setDistrict(
+          Object.values(filterCity).sort((a, b) =>
+            a.name_with_type.localeCompare(b.name_with_type)
+          ) as any
+        );
         setIsLoadingDistrict(false);
       }
     }
     getDistrict();
   }, [selectedProvince]);
+
   useEffect(() => {
+    setWard([]);
     async function getWard() {
       if (selectedDistrict.size > 0) {
         setIsLoadingWard(true);
         const valuesArray = Array.from(selectedDistrict);
         const districtCode = valuesArray[0];
-        const res = await getRequest({
-          endPoint: `https://provinces.open-api.vn/api/d/${districtCode}?depth=2`,
-        });
-        setWard(res?.wards);
+        // const res = await getRequest({
+        //   endPoint: `https://provinces.open-api.vn/api/d/${districtCode}?depth=2`
+        // })
+        // const res = await axios.get(
+        //   `https://provinces.open-api.vn/api/d/${districtCode}?depth=2`,
+        // );
+        const filterWard = Object.keys(XaPhuong)
+          .filter(
+            (key) => XaPhuong[key].parent_code === QuanHuyen[districtCode]?.code
+          )
+          .map((key) => XaPhuong[key]);
+        setWard(
+          Object.values(filterWard).sort((a, b) =>
+            a.name_with_type.localeCompare(b.name_with_type)
+          ) as any
+        );
         setIsLoadingWard(false);
       }
     }
 
     getWard();
   }, [selectedDistrict]);
+  useEffect(() => {
+    async function setValue() {
+      if (selectedWard.size > 0) {
+        const valuesArrayProvince = Array.from(selectedProvince);
+        const provinceCode = valuesArrayProvince[0];
+        const provinceValue = await provinces.find(
+          (province) => province.code == provinceCode
+        )?.name_with_type;
+        setProvince(provinceValue);
+        const valuesArrayDistrict = Array.from(selectedDistrict);
+        const districtCode = valuesArrayDistrict[0];
+        const districtValue = await districts.find(
+          (district) => district.code == districtCode
+        )?.name_with_type;
+        setDistrict(districtValue);
+        const valuesArrayWard = Array.from(selectedWard);
+        const wardCode = valuesArrayWard[0];
+        const wardValue = await wards.find((ward) => ward.code == wardCode)
+          ?.name_with_type;
+        setWard(wardValue);
+        setAddressValue(`${wardValue}, ${districtValue}, ${provinceValue}`);
+      }
+    }
+
+    setValue();
+  }, [selectedWard]);
   const isProvinceValid = selectedProvince.size > 0;
   const isDistrictValid = selectedDistrict.size > 0;
   const isWardValid = selectedWard.size > 0;
@@ -86,17 +146,19 @@ export const SelectAddress = ({ addressValue, setAddressValue }) => {
     const provinceCode = valuesArrayProvince[0];
     const provinceValue = provinces.find(
       (province) => province.code == provinceCode
-    )?.name;
+    )?.name_with_type;
 
     const valuesArrayDistrict = Array.from(selectedDistrict);
     const districtCode = valuesArrayDistrict[0];
     const districtValue = districts.find(
       (district) => district.code == districtCode
-    )?.name;
+    )?.namname_with_typee;
 
     const valuesArrayWard = Array.from(selectedWard);
     const wardCode = valuesArrayWard[0];
-    const wardValue = wards.find((ward) => ward.code == wardCode)?.name;
+    const wardValue = wards.find(
+      (ward) => ward.code == wardCode
+    )?.name_with_type;
 
     setAddressValue(
       `Số nhà ${houseNumberValue}, đường ${streetValue}, ${wardValue}, ${districtValue}, ${provinceValue}`
@@ -137,7 +199,7 @@ export const SelectAddress = ({ addressValue, setAddressValue }) => {
             >
               {provinces?.map((province) => (
                 <SelectItem key={province.code} value={province.code}>
-                  {province.name}
+                  {province.name_with_type}
                 </SelectItem>
               ))}
             </Select>
@@ -161,7 +223,7 @@ export const SelectAddress = ({ addressValue, setAddressValue }) => {
             >
               {districts?.map((district) => (
                 <SelectItem key={district.code} value={district.code}>
-                  {district.name}
+                  {district.name_with_type}
                 </SelectItem>
               ))}
             </Select>
@@ -183,7 +245,7 @@ export const SelectAddress = ({ addressValue, setAddressValue }) => {
             >
               {wards?.map((ward) => (
                 <SelectItem key={ward.code} value={ward.code}>
-                  {ward.name}
+                  {ward.name_with_type}
                 </SelectItem>
               ))}
             </Select>

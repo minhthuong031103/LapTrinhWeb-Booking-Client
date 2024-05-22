@@ -5,10 +5,10 @@ import { useEffect, useState } from 'react';
 import { Select, SelectItem } from '@nextui-org/react';
 // import { getRequest } from '@/lib/fetch'
 import axios from 'axios';
-import TinhTP from '../../hanhchinhvn/tinh_tp.json';
-import QuanHuyen from '../../hanhchinhvn/quan_huyen.json';
+import TinhTP from '@/hanhchinhvn/tinh_tp.json';
+import QuanHuyen from '@/hanhchinhvn/quan_huyen.json';
 
-import XaPhuong from '../../hanhchinhvn/xa_phuong.json';
+import XaPhuong from '@/hanhchinhvn/xa_phuong.json';
 
 interface SelectAddressProps {
   provinceValue: string;
@@ -41,6 +41,7 @@ export const SelectAddress = ({
   const [provinces, setProvince] = useState([]);
   const [districts, setDistrict] = useState([]);
   const [wards, setWard] = useState([]);
+
   useEffect(() => {
     async function getProvince() {
       setIsLoadingProvince(true);
@@ -51,7 +52,7 @@ export const SelectAddress = ({
       // setProvince(res.data);
       setProvince(
         Object.values(TinhTP).sort((a, b) =>
-          a.name.localeCompare(b.name)
+          a.name_with_type.localeCompare(b.name_with_type)
         ) as any
       );
       setIsLoadingProvince(false);
@@ -77,7 +78,7 @@ export const SelectAddress = ({
 
         setDistrict(
           Object.values(filterCity).sort((a, b) =>
-            a.name.localeCompare(b.name)
+            a.name_with_type.localeCompare(b.name_with_type)
           ) as any
         );
         setIsLoadingDistrict(false);
@@ -106,7 +107,7 @@ export const SelectAddress = ({
           .map((key) => XaPhuong[key]);
         setWard(
           Object.values(filterWard).sort((a, b) =>
-            a.name.localeCompare(b.name)
+            a.name_with_type.localeCompare(b.name_with_type)
           ) as any
         );
         setIsLoadingWard(false);
@@ -122,47 +123,23 @@ export const SelectAddress = ({
         const provinceCode = valuesArrayProvince[0];
         const provinceValue = await provinces.find(
           (province) => province.code == provinceCode
-        )?.name;
-        setProvinceValue(provinceValue);
+        )?.name_with_type;
         const valuesArrayDistrict = Array.from(selectedDistrict);
         const districtCode = valuesArrayDistrict[0];
         const districtValue = await districts.find(
           (district) => district.code == districtCode
-        )?.name;
-        setDistrictValue(districtValue);
+        )?.name_with_type;
         const valuesArrayWard = Array.from(selectedWard);
         const wardCode = valuesArrayWard[0];
         const wardValue = await wards.find((ward) => ward.code == wardCode)
-          ?.name;
-        setWardValue(wardValue);
+          ?.name_with_type;
       }
     }
 
     setValue();
   }, [selectedWard]);
+  //
 
-  useEffect(() => {
-    if (provinceValue && provinces) {
-      const province = Object.values(provinces).find(
-        (province) => province.name === provinceValue
-      );
-      setSelectedProvince(new Set([province?.code]));
-    }
-  }, [provinces, provinceValue]);
-  useEffect(() => {
-    if (districtValue && districts) {
-      const district = districts.find(
-        (district) => district.name === districtValue
-      );
-      setSelectedDistrict(new Set([district?.code]));
-    }
-  }, [districts, districtValue]);
-  useEffect(() => {
-    if (wardValue && wards) {
-      const ward = wards.find((ward) => ward.name === wardValue);
-      setSelectedWard(new Set([ward?.code]));
-    }
-  }, [wards, wardValue]);
   const isProvinceValid = selectedProvince.size > 0;
   const isDistrictValid = selectedDistrict.size > 0;
   const isWardValid = selectedWard.size > 0;
