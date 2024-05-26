@@ -27,7 +27,8 @@
       "@endpoints/*": ["./src/endpoints/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@actions/*": ["./src/actions/*"],
-      "@lib/*": ["./src/lib/*"]
+      "@lib/*": ["./src/lib/*"],
+      "@constants/*": ["./src/constants/*"],
     },
     "strictNullChecks": true
   },

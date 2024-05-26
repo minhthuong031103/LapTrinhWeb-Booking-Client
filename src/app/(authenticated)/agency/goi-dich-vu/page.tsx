@@ -34,6 +34,7 @@ const page = async () => {
     },
   });
   const products = await stripe.products.list();
+  console.log('🚀 ~ page ~ products:', products);
 
   const subscribedPlan = products.data.find(
     (plan) => plan.id === currentlyPlan?.product

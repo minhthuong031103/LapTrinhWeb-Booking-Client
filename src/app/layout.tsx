@@ -97,6 +97,7 @@ const metadata: Metadata = {
 };
 
 import { Providers } from './Providers';
+import { Web3Provider } from '../../context/Web3Provider';
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -117,12 +118,14 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         style={{ fontFamily: "'Nunito', sans-serif" }}
       >
         <Providers>
-          <QueryProvider>
-            <AuthProvider>
-              <Toaster />
-              {children}
-            </AuthProvider>
-          </QueryProvider>
+          <Web3Provider>
+            <QueryProvider>
+              <AuthProvider>
+                <Toaster />
+                {children}
+              </AuthProvider>
+            </QueryProvider>
+          </Web3Provider>
         </Providers>
       </body>
     </html>
