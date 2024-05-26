@@ -129,18 +129,15 @@ export const SelectAddress = ({
         const provinceValue = await provinces.find(
           (province) => province.code == provinceCode
         )?.name_with_type;
-        setProvince(provinceValue);
         const valuesArrayDistrict = Array.from(selectedDistrict);
         const districtCode = valuesArrayDistrict[0];
         const districtValue = await districts.find(
           (district) => district.code == districtCode
         )?.name_with_type;
-        setDistrict(districtValue);
         const valuesArrayWard = Array.from(selectedWard);
         const wardCode = valuesArrayWard[0];
         const wardValue = await wards.find((ward) => ward.code == wardCode)
           ?.name_with_type;
-        setWard(wardValue);
         setAddressValue(`${wardValue}, ${districtValue}, ${provinceValue}`);
       }
     }
