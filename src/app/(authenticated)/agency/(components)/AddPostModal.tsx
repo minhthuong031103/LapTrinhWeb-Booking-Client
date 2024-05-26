@@ -11,6 +11,8 @@ import { useSession } from 'next-auth/react';
 import { MuaLeModal } from '../goi-dich-vu/MuaLeModal';
 import { useAuth } from '@/hooks/useAuth';
 import { PlusIcon } from '@radix-ui/react-icons';
+import { useQuery } from '@tanstack/react-query';
+import { useDoiTac } from '@/hooks/useDoiTac';
 // const formSchema = z.object({});
 const AddPostModal = () => {
   const [open, setOpen] = React.useState(false);
@@ -19,9 +21,14 @@ const AddPostModal = () => {
   const [ban, setBan] = React.useState(false);
   const [isMuaLeModalOpen, setIsMuaLeModalOpen] = React.useState(false);
   const session = useSession();
-  const { queryUser } = useAuth();
-
-  const { data: user, refetch: refetchUser } = queryUser(session);
+  const { fetchDoiTacTheoId } = useDoiTac();
+  const { data: user, refetch: refetchUser } = useQuery({
+    queryKey: ['userInfo', session?.data?.user?.id],
+    queryFn: async () => {
+      const res = await fetchDoiTacTheoId(session?.data?.user?.id);
+      return res?.[0];
+    },
+  });
 
   return (
     <div className="right-0">

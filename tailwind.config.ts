@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import { nextui } from '@nextui-org/react';
+import { withUt } from 'uploadthing/tw';
 
 const config: Config = {
   content: [
@@ -80,4 +81,4 @@ const config: Config = {
     nextui(),
   ],
 };
-export default config;
+export default withUt(config);
