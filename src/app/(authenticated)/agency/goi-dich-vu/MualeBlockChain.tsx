@@ -22,7 +22,7 @@ import {
   useContract,
   useContractWrite,
 } from '@thirdweb-dev/react';
-import { muaLeAction } from '@/actions/mualeAction';
+import { muaLeAction } from '../../../../actions/mualeaction';
 import { BinanceTestnet } from '@thirdweb-dev/chains';
 import { tokenAddress, receiver } from '@/constants';
 import { ethers } from 'ethers';
