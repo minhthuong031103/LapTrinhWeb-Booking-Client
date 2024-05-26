@@ -16,6 +16,8 @@ import { currencyFormat } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 import { useSession } from 'next-auth/react';
 import { useAuth } from '@/hooks/useAuth';
+import { useDoiTac } from '@/hooks/useDoiTac';
+import { useQuery } from '@tanstack/react-query';
 
 interface MuaLeModalProps {
   setIsModalOpen: (value: boolean) => void;
@@ -37,8 +39,15 @@ export const MuaLeModal = ({
   const [quantity, setQuantity] = React.useState(1);
   const session = useSession();
 
-  const { queryUser } = useAuth();
-  const { data: user } = queryUser(session);
+  const { fetchDoiTacTheoId } = useDoiTac();
+  const { data: user, refetch: refetchUser } = useQuery({
+    queryKey: ['userInfo', session?.data?.user?.id],
+    queryFn: async () => {
+      const res = await fetchDoiTacTheoId(session?.data?.user?.id);
+      return res?.[0];
+    },
+  });
+
   useEffect(() => {
     const getConfig = async () => {
       const res = await getRequest({

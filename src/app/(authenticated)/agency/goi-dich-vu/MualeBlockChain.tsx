@@ -28,6 +28,8 @@ import { tokenAddress, receiver } from '@/constants';
 import { ethers } from 'ethers';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
+import { useDoiTac } from '@/hooks/useDoiTac';
+import { useQuery } from '@tanstack/react-query';
 interface MuaLeModalProps {
   setIsModalOpen: (value: boolean) => void;
   isModalOpen: boolean;
@@ -52,8 +54,14 @@ export const MuaLeBlockChainModal = ({
   const [quantity, setQuantity] = React.useState(1);
   const session = useSession();
   const address = useAddress();
-  const { queryUser } = useAuth();
-  const { data: user } = queryUser(session);
+  const { fetchDoiTacTheoId } = useDoiTac();
+  const { data: user, refetch: refetchUser } = useQuery({
+    queryKey: ['userInfo', session?.data?.user?.id],
+    queryFn: async () => {
+      const res = await fetchDoiTacTheoId(session?.data?.user?.id);
+      return res?.[0];
+    },
+  });
 
   const currentPrice = MuaLeConst?.find(
     (item) => item.value === selectedType?.values().next().value
