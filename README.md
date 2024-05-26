@@ -39,10 +39,8 @@ This project almost completed like a real estate brokerage market. However devel
 I deeply appreciate every member of this team for showing relentless effort for this project.
 
 | Leader | Member | Member | Supporter |
-| --- | --- | --- | --- |
-| [![](https://avatars.githubusercontent.com/u/116157535?size=160)](https://github.com/SonDangUIT1111) | [![](https://avatars.githubusercontent.com/u/101078033?size=160)](https://github.com/minhthuong031103) | [![](https://avatars.githubusercontent.com/u/30335268?size=160)](https://github.com/anhkhoatqt11) | [![]()](https://github.com/huutaiii) |
-| [Đặng Thái Sơn](https://github.com/SonDangUIT1111) | [Nguyễn Minh Thường](https://github.com/minhthuong031103) | [Trương Anh Khoa](https://github.com/anhkhoatqt11) | [Trương Quốc Tài](https://github.com/huutaiii) |
-
+| --- |
+ [![](https://avatars.githubusercontent.com/u/101078033?size=160)](https://github.com/minhthuong031103) | [Nguyễn Minh Thường](https://github.com/minhthuong031103) 
 ## ⚙ Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
