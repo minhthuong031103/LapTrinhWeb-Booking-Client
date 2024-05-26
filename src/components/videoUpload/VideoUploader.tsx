@@ -71,6 +71,7 @@ export const VideoUploader = ({
           <VideoUploadInput
             endpoint="chapterVideo"
             onChange={(video) => {
+              console.log('🚀 ~ video:', video);
               setVideoUrl(video.url);
             }}
           />

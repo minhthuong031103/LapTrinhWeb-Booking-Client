@@ -55,6 +55,7 @@ export const BaiVietForm = ({
   const [phapLyImageFiles, setPhapLyImageFiles] = React.useState([]);
   const [banVeThietKe, setBanVeThietKe] = React.useState([]);
   const [videoUrl, setVideoUrl] = React.useState('');
+  console.log('🚀 ~ videoUrl:', videoUrl);
   const [suaChuaLanCuoi, setSuaChuaLanCuoi] = React.useState();
   const [hoanThanh, setHoanThanh] = React.useState();
   const [danhSachTienNghi, setDanhSachTienNghi] = React.useState([]);
