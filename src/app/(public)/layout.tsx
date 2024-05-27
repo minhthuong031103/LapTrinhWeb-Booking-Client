@@ -9,7 +9,7 @@ export default async function Layout({
 }) {
   const session = await getSession();
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full overflow-x-hidden">
       <Header session={session} />
       {children}
       <Footer />

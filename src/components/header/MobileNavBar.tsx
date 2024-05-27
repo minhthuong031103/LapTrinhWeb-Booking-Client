@@ -13,6 +13,7 @@ import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
 import { CommonSvg } from '@/assets/CommonSvg';
 import Link from 'next/link';
+import { signOut, useSession } from 'next-auth/react';
 
 const mainNavItems = [
   {
@@ -43,19 +44,19 @@ const mainNavItems = [
     items: [
       {
         title: 'Thông tin cá nhân',
-        href: '/bat-dong-san',
+        href: '/user',
         description: 'profile',
         items: [],
       },
       {
         title: 'Tin nhắn',
-        href: '/doi-tac',
+        href: '/conversations',
         description: 'Message',
         items: [],
       },
       {
         title: 'Kênh đối tác',
-        href: '/chinh-sach',
+        href: '/agency',
         description: 'agency channel',
         items: [],
       },
@@ -65,7 +66,7 @@ const mainNavItems = [
 export function MobileNav() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-
+  const session = useSession();
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
@@ -125,6 +126,18 @@ export function MobileNav() {
                 </AccordionItem>
               ))}
             </Accordion>
+            {session?.data?.user && (
+              <Button
+                className="mt-3 h-5"
+                onClick={() =>
+                  signOut({
+                    callbackUrl: `${process.env.NEXT_PUBLIC_SITE_URL}/auth/login`,
+                  })
+                }
+              >
+                Đăng xuất
+              </Button>
+            )}
           </div>
         </ScrollArea>
       </SheetContent>
