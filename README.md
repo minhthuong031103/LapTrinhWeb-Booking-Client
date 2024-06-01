@@ -5,6 +5,8 @@
 ##
 
 MinhThuong Estate is a website which plays an important role in transactions between Real Estate seller and customer, managed by a real estate broker
+![image](https://github.com/minhthuong031103/LapTrinhWeb-Booking-Client/assets/101078033/faece213-fb23-4a8d-9269-f464394ec148)
+![image](https://github.com/minhthuong031103/LapTrinhWeb-Booking-Client/assets/101078033/7102b36a-62b4-4efc-8f0c-71f3a3506924)
 
 ## 📚 Introduction
 
